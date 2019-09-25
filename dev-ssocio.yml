@@ -1,0 +1,17 @@
+name: dev-ssocio
+root: ~/workspace/lemoncloud/ssocio
+
+windows:
+  - front:
+        root: ~/workspace/lemoncloud/ssocio
+        layout: even-horizontal
+        panes:
+            - ssbbn && docker stop ssocio-admin-run || true && cd ssocio-admin-web && npm run server
+            - docker stop ssocio-front-run || true && cd ssocio-front-web && npm run server 
+            - docker stop ssocio-terminal-run || true && cd ssocio-terminal-web && npm run server
+  - api:
+        root: ~/workspace/lemoncloud/ssocio
+        layout: tiled
+        panes:
+            - docker stop ssocio-users-run || true && cd ssocio-users-api && npm run server
+            - cd ssocio-pools-api && git pull origin master && npm run express-louis

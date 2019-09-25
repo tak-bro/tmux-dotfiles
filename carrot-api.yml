@@ -1,0 +1,19 @@
+# ~/.tmuxinator/api-for-admin-gw.yml
+
+name: carrot-api
+root: ~/workspace/lemoncloud/carrot
+
+windows:
+  - front-api:
+        root: ~/workspace/lemoncloud/carrot
+        layout: main-vertical
+        panes:
+            - lmdenv && cd front/carrot-web-front && npm start
+            - cd front/carrot-web-front
+  - lemon-bot:
+        root: ~/workspace/lemoncloud/carrot
+        layout: tiled
+        panes:
+            - cd ../bot/lemon-bot && git pull origin master && npm run bot-api
+            - cd api/carrot-horses-api && git pull origin develop && npm run express-proxy
+            - cd api/carrot-messages-api && git pull origin develop && npm run server-local

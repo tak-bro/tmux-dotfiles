@@ -1,0 +1,12 @@
+# ~/.tmuxinator/api-for-admin-gw.yml
+
+name: puton
+root: ~/workspace/failnicely/puton_contract
+
+windows:
+  - putoni:
+        root: ~/workspace/failnicely/puton_contract
+        layout: even-horizontal
+        panes:
+            - nodeos -e -p eosio --plugin eosio::chain_api_plugin --plugin eosio::history_api_plugin --delete-all-block --contracts-console 
+            - ./init_tmux.sh

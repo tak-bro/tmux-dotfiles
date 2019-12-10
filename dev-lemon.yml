@@ -37,6 +37,11 @@ windows:
         panes:
             - cd core/lemon-bot && git pull origin master && npm run bot-api
             - redis-server
+  - eureka_api:
+        root: ~/workspace/lemoncloud/eureka/backend
+        layout: even-horizontal
+        panes:
+            - cd lemon-express-eureka-api && git pull origin develop && npm run express.lemon
   - carrot_api:
         root: ~/workspace/lemoncloud/carrot/api
         layout: even-horizontal
@@ -44,10 +49,3 @@ windows:
             - echo 'not running carrot'
             # - cd carrot-horses-api && git pull origin develop && npm run express-proxy
             # - cd carrot-messages-api && git pull origin master && npm run server.lemon
-  - eureka_api:
-        root: ~/workspace/lemoncloud/eureka/
-        layout: even-horizontal
-        panes:
-            - cd lemon-eureka-api && git pull origin develop && npm run start
-
-

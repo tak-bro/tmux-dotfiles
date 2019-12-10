@@ -6,12 +6,12 @@ windows:
         root: ~/workspace/lemoncloud/ssocio
         layout: even-horizontal
         panes:
-            - ssbbn && docker stop ssocio-admin-run || true && cd ssocio-admin-web && npm run server
-            - docker stop ssocio-front-run || true && cd ssocio-front-web && npm run server 
-            - docker stop ssocio-terminal-run || true && cd ssocio-terminal-web && npm run server
+            - ssbbn && cd ssocio-front-web && git pull origin develop && virtualenv venv3 --python=python3 && source venv3/bin/activate && npm run local.old
+            - cd ssocio-admin-web && git pull origin develop && virtualenv venv3 --python=python3 && source venv3/bin/activate && npm run local.old
   - api:
         root: ~/workspace/lemoncloud/ssocio
         layout: tiled
         panes:
-            - docker stop ssocio-users-run || true && cd ssocio-users-api && npm run server
-            - cd ssocio-pools-api && git pull origin master && npm run express-louis
+            - cd ssocio-pools-api && git pull origin develop && npm run express.ssocio
+            - cd lemon-todaq-api && git pull origin develop && npm run express.ssocio
+            - redis-server

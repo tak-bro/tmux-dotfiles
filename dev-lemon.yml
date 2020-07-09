@@ -3,45 +3,40 @@ root: ~/workspace/lemoncloud
 
 windows:
   - front:
-        root: ~/workspace/lemoncloud
+        root: ~/workspace/lemoncloud/lemon
         layout: tiled
         panes:
             - lmdenv && lmes6 && lmbbn2 && cd front/lemon-admin-front && git pull origin develop && npm run start.custom
             - cd front/lemon-gateway5 && git pull origin master && npm start
               # - cd carrot/front/carrot-web-front && git pull origin develop && npm start
-            - cd example/angular-demo && ng serve --port 4199
+            - cd ../themes/angular-demo && ng serve --port 4199
   - acc_msg_hel:
-        root: ~/workspace/lemoncloud/api
+        root: ~/workspace/lemoncloud/lemon/back/api
         layout: even-horizontal
         panes:
             - cd lemon-accounts-api && git pull origin develop && npm run express.lemon
             - cd lemon-messages-api && git pull origin master && npm run express.lemon
             - cd lemon-hello-api && git pull origin develop && npm run express.lemon
   - imw_itm_que:
-        root: ~/workspace/lemoncloud/api
+        root: ~/workspace/lemoncloud/lemon/back/api
         layout: even-horizontal
         panes:
             - cd lemon-imweb-pools-api && git pull origin master && npm run express-local
             - cd lemon-item-pools-api && git pull origin master && npm run server-local
             - cd lemon-queue-api && git pull origin master && npm run express.lemon
   - ses_clus:
-        root: ~/workspace/lemoncloud/api
+        root: ~/workspace/lemoncloud/lemon/back/api
         layout: even-horizontal
         panes:
             - cd lemon-sessions-api && git pull origin master && npm run express.lemon
             - cd lemon-clusters-api && git pull origin master && npm run express.lemon
             - cd lemon-iamport-api && git pull origin master && npm run express.lemon
   - bot_redis:
-        root: ~/workspace/lemoncloud
+        root: ~/workspace/lemoncloud/lemon/back
         layout: tiled
         panes:
             - cd core/lemon-bot && git pull origin master && npm run bot-api
             - redis-server
-  - eureka_api:
-        root: ~/workspace/lemoncloud/eureka/backend
-        layout: even-horizontal
-        panes:
-            - cd lemon-express-eureka-api && git pull origin develop && npm run express.lemon
   - carrot_api:
         root: ~/workspace/lemoncloud/carrot/api
         layout: even-horizontal
